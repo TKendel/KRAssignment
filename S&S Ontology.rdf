@@ -1,0 +1,1202 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6/"
+     xml:base="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6">
+        <rdfs:comment xml:lang="en">Amsterdam Best Salads</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasBread -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasBread">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasSandwich"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasDressing -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasDressing">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasIngredient"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isDressingOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasFilling -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasFilling">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasSandwich"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isFillingOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasGreen -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasGreen">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasSalad"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isGreenOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasIngredient -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasIngredient">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isIngredientOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasMainCourse -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasMainCourse">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasIngredient"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isMainCourseOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasSalad -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasSalad">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasIngredient"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isSaladOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasSandwich -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasSandwich">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasIngredient"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isSandwichOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasSeasoning -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasSeasoning">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasIngredient"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasIngredient"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isToppingOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isBreadOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isBreadOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isSandwichOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isDressingOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isDressingOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isIngredientOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isFillingOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isFillingOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isSandwichOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isGreenOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isGreenOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isSaladOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isIngredientOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isIngredientOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isMainCourseOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isMainCourseOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isIngredientOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isSaladOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isSaladOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isIngredientOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isSandwichOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isSandwichOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isIngredientOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isSeasoningOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isSeasoningOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isIngredientOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isToppingOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isToppingOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#isIngredientOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#AsianFresh -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#AsianFresh">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#SaladBowl"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasDressing"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PeanutSauce"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cucumber"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Edamame"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#GreenBeans"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Herbs"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Mango"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Peanut"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PickledRedCabbage"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Radish"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#RedRice"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Tempeh"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Aubergine -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Aubergine">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Bananenbrood -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Bananenbrood">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cake"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Beef -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Beef">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Meat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Bread -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Bread">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#BrownBeans -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#BrownBeans">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#BrownRice -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#BrownRice">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Legume"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Brownie -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Brownie">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cake"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Bulgur -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Bulgur">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Legume"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cake -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cake">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cashew -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cashew">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Nut"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cheese -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cheese">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Spread"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Humus"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cheesecake -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cheesecake">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cake"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Chicken -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Chicken">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Meat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Chickpea -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Chickpea">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Coleslaw -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Coleslaw">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Core -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Core">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cucumber -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cucumber">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#CurrySweetPotato -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#CurrySweetPotato">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Vegi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Dish -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Dish">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Meal"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasMainCourse"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Core"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasSandwich"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Sandwich"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasSalad"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#SaladBowl"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Dressing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Dressing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Edamame -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Edamame">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Food -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Food"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#FunkyCalledTahini -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#FunkyCalledTahini">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Dish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasMainCourse"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Musakka"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasSalad"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#FunkyCalledTahiniSalad"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#FunkyCalledTahiniSalad -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#FunkyCalledTahiniSalad">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#SaladBowl"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasDressing"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Tahini"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cheese"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cucumber"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Herbs"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Tomato"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#GadoGado -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#GadoGado">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Nut"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Garlic -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Garlic">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Dressing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#GreenBeans -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#GreenBeans">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Herbs -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Herbs">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Humus -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Humus">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Spread"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#HumusWrap -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#HumusWrap">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Sandwich"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasFilling"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Humus"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasSeasoning"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Zaatar"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#KofteWrap -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#KofteWrap">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Sandwich"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#LambKofte -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#LambKofte">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Meat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Legume -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Legume">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Lettuce -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Lettuce">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Core"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Meat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#LevantineBread -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#LevantineBread">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Bread"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Pita"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Mango -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Mango">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Meal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Meal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Meat -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Meat">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Core"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Vegi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Musakka -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Musakka">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Vegi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Nut -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Nut">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Olive -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Olive">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Oyster -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Oyster">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Vegi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#OysterWrap -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#OysterWrap">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Sandwich"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasBread"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Pita"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasFilling"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Oyster"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Paprika -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Paprika">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PaprikaSauce -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PaprikaSauce">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Dressing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Peanut -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Peanut">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Nut"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PeanutSauce -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PeanutSauce">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Dressing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PekVanDerPickleflat -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PekVanDerPickleflat">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Sandwich"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasDressing"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PaprikaSauce"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasDressing"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Saracha"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasFilling"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Chicken"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasFilling"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Coleslaw"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasFilling"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cucumber"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasFilling"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Humus"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasFilling"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Lettuce"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasFilling"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PickledOnion"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PickledCauliflower -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PickledCauliflower">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PickledOnion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PickledOnion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PickledRedCabbage -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PickledRedCabbage">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Pita -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Pita">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Bread"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Quinoa -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Quinoa">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Legume"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Radish -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Radish">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#RedRice -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#RedRice">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Legume"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#RoastedChicks -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#RoastedChicks">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#SaladBowl"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasDressing"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PaprikaSauce"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Aubergine"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Bulgur"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Chicken"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cucumber"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Olive"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Paprika"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PickledOnion"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#SweetPotato"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Tomato"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Rozecake -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Rozecake">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cake"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#SaladBowl -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#SaladBowl">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Meal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasGreen"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Lettuce"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Sandwich -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Sandwich">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Meal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasBread"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Bread"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Saracha -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Saracha">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Dressing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Seasoning -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Seasoning">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Spinach -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Spinach">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Spread -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Spread">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Sumak -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Sumak">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Seasoning"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Zaatar"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#SweetPotato -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#SweetPotato">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Tahini -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Tahini">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Dressing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Tempeh -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Tempeh">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Vegi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Tomato -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Tomato">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Topping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Vegan -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Vegan">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cheese"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Vegetarian"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Vegetarian -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Vegetarian">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Food"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasFilling"/>
+                                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Meat"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasMainCourse"/>
+                                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Meat"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasTopping"/>
+                                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Meat"/>
+                                    </owl:Restriction>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Vegi -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Vegi">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Core"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#VegiWrap -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#VegiWrap">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Sandwich"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasDressing"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Tahini"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasFilling"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cheese"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasFilling"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Coleslaw"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasFilling"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Humus"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasFilling"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Lettuce"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasFilling"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Paprika"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#hasSeasoning"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Zaatar"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Zaatar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Zaatar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Seasoning"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Aubergine"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#BrownBeans"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Chickpea"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Coleslaw"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cucumber"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Edamame"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#GreenBeans"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Herbs"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Mango"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Olive"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Paprika"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PickledCauliflower"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PickledOnion"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PickledRedCabbage"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Radish"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Spinach"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#SweetPotato"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Tomato"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Bananenbrood"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Brownie"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cheesecake"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Rozecake"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#BrownRice"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Bulgur"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Quinoa"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#RedRice"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Cashew"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#GadoGado"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Peanut"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#CurrySweetPotato"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Musakka"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Oyster"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Tempeh"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Garlic"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PaprikaSauce"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PeanutSauce"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Saracha"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Tahini"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Garlic"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PaprikaSauce"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#PeanutSauce"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#Tahini"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+
