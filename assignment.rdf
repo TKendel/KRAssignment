@@ -31,6 +31,16 @@
     
 
 
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasBread -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasBread">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#Food"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#Bread"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasDressing -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasDressing">
@@ -98,6 +108,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#MangoIngredient">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#FruitIngredient"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#JackfruitIngredient"/>
     </owl:Class>
     
 
@@ -135,13 +146,19 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#EdemameIngredient"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#EdamameIngredient"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GreenBeansIngredient"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -176,8 +193,9 @@
                         <owl:unionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#MangoIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#RadishIngredient"/>
-                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#EdemameIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#EdamameIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GreenBeansIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MarinatedTempehIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PeanutIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RedCabbageAtjarIngredient"/>
@@ -201,7 +219,7 @@
     <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BeefIngredient -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BeefIngredient">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeetIngredient"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeatIngredient"/>
     </owl:Class>
     
 
@@ -246,11 +264,19 @@
     
 
 
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#Bread -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#Bread">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#Food"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BrownRiceBase -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BrownRiceBase">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RiceBase"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BulgurBase"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RedRiceBase"/>
     </owl:Class>
     
 
@@ -306,15 +332,7 @@
     <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#ChickenIngredient -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#ChickenIngredient">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeetIngredient"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#ColeslawAndGarlicIngredient -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#ColeslawAndGarlicIngredient">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#ColeslawIngredient"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeatIngredient"/>
     </owl:Class>
     
 
@@ -334,7 +352,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasBase"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BowlBase"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BrownRiceBase"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -346,31 +364,25 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BrownRiceBase"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CucumberIngredient"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#EdemameIngredient"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#EdamameIngredient"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbIngredient"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HoisinIngredient"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HoisinBeefIngredient"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -393,9 +405,9 @@
                         <owl:unionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BlackBeansIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CucumberIngredient"/>
-                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#EdemameIngredient"/>
-                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbIngredient"/>
-                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HoisinIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#EdamameIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HoisinBeefIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PickeledCauliflowerIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RedCabbageAtjarIngredient"/>
                         </owl:unionOf>
@@ -403,14 +415,6 @@
                 </owl:allValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CrispyLetuceIngredient -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CrispyLetuceIngredient">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LetuceIngredient"/>
     </owl:Class>
     
 
@@ -423,18 +427,69 @@
     
 
 
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#DomainThing -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#DomainThing">
-        <rdfs:label>ValuePartition</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#DoubleEastFeast -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#DoubleEastFeast">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#NamedBowl"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CucumberIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GreenBeansIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#JackfruitIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PeanutIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RedCabbageAtjarIngredient"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasBread"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PitaBread"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasDressing"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PeanutDressing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CucumberIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GreenBeansIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#JackfruitIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PeanutIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RedCabbageAtjarIngredient"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -447,9 +502,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#EdemameIngredient -->
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#EdamameIngredient -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#EdemameIngredient">
+    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#EdamameIngredient">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BeansIngredient"/>
     </owl:Class>
     
@@ -472,14 +527,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#FreshMintIngredient -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#FreshMintIngredient">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbIngredient"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#FruitIngredient -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#FruitIngredient">
@@ -492,14 +539,81 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#FunkyCalledTahina">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#NamedBowl"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CherryTomatoIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CucumberIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MusakaaIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TurkishCheeseIngredient"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasBase"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BulgurBase"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasDressing"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TahiniDressing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CherryTomatoIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CucumberIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MusakaaIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TurkishCheeseIngredient"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GarlicSauceIngredient -->
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GadogadoIngredient -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GarlicSauceIngredient">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SauceIngredient"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GadogadoIngredient">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#NutIngredient"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GarlicDressing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GarlicDressing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#Dressing"/>
     </owl:Class>
     
 
@@ -516,29 +630,103 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GreensAndBeans">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#NamedBowl"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasDressing"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TahiniDressing"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#ChickpeaIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BlackBeansIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CherryTomatoIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CucumberIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HumusIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PickeledCauliflowerIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SpinachIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TaggiaOliveIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TurkishCheeseIngredient"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasBase"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#QuinoaBase"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#ChickpeaIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BlackBeansIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CherryTomatoIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CucumberIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HumusIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PickeledCauliflowerIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SpinachIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TaggiaOliveIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TurkishCheeseIngredient"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GyrosOysterMushroomIngredient -->
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GyrosOysterMushroomIngredient">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#OysterMushroomIngredient"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbIngredient -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbIngredient">
+    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BowlIngredient"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HoisinIngredient -->
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HoisinBeefIngredient -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HoisinIngredient">
+    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HoisinBeefIngredient">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BeefIngredient"/>
     </owl:Class>
     
@@ -567,19 +755,19 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasBase"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BowlBase"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BulgurBase"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbIngredient"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LambKofteMeatballsIngredient"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#KofteMeatballIngredient"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -612,8 +800,8 @@
                 <owl:allValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbIngredient"/>
-                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LambKofteMeatballsIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#KofteMeatballIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RoastedAubergineIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RoastedBellPepperIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TomatoSauceIngredient"/>
@@ -627,18 +815,35 @@
     
 
 
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LambKofteMeatballsIngredient -->
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#KofteMeatballIngredient -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LambKofteMeatballsIngredient">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeatballsIngredient"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#KofteMeatballIngredient">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LambIngredient"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LetuceIngredient -->
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LambIngredient -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LetuceIngredient">
+    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LambIngredient">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeatIngredient"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#VegetableIngredient"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LevantineBread -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LevantineBread">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#Bread"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PitaBread"/>
     </owl:Class>
     
 
@@ -651,18 +856,87 @@
     
 
 
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeatballMadness -->
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeatIngredient -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeatballMadness">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#NamedBowl"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeatIngredient">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BowlIngredient"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeatballsIngredient -->
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeatballMadness -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeatballsIngredient">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeetIngredient"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeatballMadness">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#NamedBowl"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#ColeslawIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CucumberIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#KofteMeatballIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PickeledCauliflowerIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RoastedBellPepperIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RoastedEggplantIngredient"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasBread"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PitaBread"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasDressing"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GarlicDressing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#ColeslawIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CucumberIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#KofteMeatballIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PickeledCauliflowerIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RoastedBellPepperIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RoastedEggplantIngredient"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -676,39 +950,107 @@
                     <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#Bowl"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeetIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeatIngredient"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#Bowl"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#NonVegetarianBowl"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#VeganBowl"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#VegetarianBowl"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeetIngredient -->
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MixAndMingle -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeetIngredient">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BowlIngredient"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MixAndMingleBowl -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MixAndMingleBowl">
+    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MixAndMingle">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#NamedBowl"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#ColeslawIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CucumberIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#EdamameIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GadogadoIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GreenBeansIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MarinatedTempehIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SpinachIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SweetPotatoIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#YellowCurryIngredient"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasBase"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BrownRiceBase"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasDressing"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PeanutDressing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#ColeslawIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CucumberIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#EdamameIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GadogadoIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GreenBeansIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MarinatedTempehIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SpinachIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SweetPotatoIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#YellowCurryIngredient"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MixedCabbageIngredient -->
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MusakaaIngredient -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MixedCabbageIngredient">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CabbageIngredient"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MusakaaIngredient">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BowlIngredient"/>
     </owl:Class>
     
 
@@ -764,10 +1106,78 @@
     
 
 
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#OnionIngredient -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#OnionIngredient">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#VegetableIngredient"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#OysterAndOats -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#OysterAndOats">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#NamedBowl"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#OysterMushroomIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RoastedBellPepperIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RoastedEggplantIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SeitanMushroomIngredient"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasBread"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PitaBread"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasDressing"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GarlicDressing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasDressing"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TahiniDressing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#OysterMushroomIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RoastedBellPepperIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RoastedEggplantIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SeitanMushroomIngredient"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -776,6 +1186,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#OysterMushroomIngredient">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MushroomIngredient"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SeitanMushroomIngredient"/>
     </owl:Class>
     
 
@@ -804,10 +1215,18 @@
     
 
 
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PitaBase -->
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PickeledRedOnionIngredient -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PitaBase">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BowlBase"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PickeledRedOnionIngredient">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#OnionIngredient"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PitaBread -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PitaBread">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#Bread"/>
     </owl:Class>
     
 
@@ -816,14 +1235,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PotatoIngredient">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#VegetableIngredient"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PulledJackfruitIngredient -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PulledJackfruitIngredient">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#JackfruitIngredient"/>
     </owl:Class>
     
 
@@ -896,6 +1307,75 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RoastedChicks">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#NamedBowl"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CherryTomatoIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CucumberIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PickeledRedOnionIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RoastedBellPepperIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RoastedEggplantIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SweetPotatoIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TaggiaOliveIngredient"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasBase"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BulgurBase"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasDressing"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RedBellPepperDressing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CherryTomatoIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CucumberIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PickeledRedOnionIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RoastedBellPepperIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RoastedEggplantIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SweetPotatoIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TaggiaOliveIngredient"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -916,10 +1396,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SeitanIngredient -->
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SeitanMushroomIngredient -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SeitanIngredient">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BowlIngredient"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SeitanMushroomIngredient">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MushroomIngredient"/>
     </owl:Class>
     
 
@@ -936,6 +1416,80 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SuperWow">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#NamedBowl"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BlackBeansIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CashewNutsIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CucumberIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#EdamameIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HoisinBeefIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PickeledCauliflowerIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RedCabbageAtjarIngredient"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasBase"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BrownRiceBase"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasDressing"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RedBellPepperDressing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BlackBeansIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CashewNutsIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CucumberIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#EdamameIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HoisinBeefIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PickeledCauliflowerIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RedCabbageAtjarIngredient"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -976,6 +1530,54 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TheYellowOne">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#NamedBowl"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CashewNutsIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SpinachIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SweetPotatoIngredient"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#YellowCurryIngredient"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasBase"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BrownRiceBase"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CashewNutsIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SpinachIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SweetPotatoIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#YellowCurryIngredient"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -992,6 +1594,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TomatoSauceIngredient">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SauceIngredient"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#YellowCurryIngredient"/>
     </owl:Class>
     
 
@@ -1041,11 +1644,11 @@
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#FruitIngredient"/>
-                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HumusIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MusakaaIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#NutIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SauceIngredient"/>
-                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SeitanIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TempehIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#VegetableIngredient"/>
                         </owl:unionOf>
@@ -1077,29 +1680,10 @@
                         <owl:complementOf>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
-                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeetIngredient"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeatIngredient"/>
                             </owl:Restriction>
                         </owl:complementOf>
                     </owl:Class>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#Bowl"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#VegetarianBowl1 -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#VegetarianBowl1">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#Bowl"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
-                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#VegetarianIngredient"/>
-                    </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
@@ -1119,11 +1703,10 @@
                         <owl:unionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CheeseIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#FruitIngredient"/>
-                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HumusIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#NutIngredient"/>
-                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SauceIngredient"/>
-                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SeitanIngredient"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SeitanMushroomIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TempehIngredient"/>
                             <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#VegetableIngredient"/>
                         </owl:unionOf>
@@ -1136,11 +1719,181 @@
     
 
 
+    <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#WithGreenSalad -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#WithGreenSalad">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#Bowl"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#hasIngredient"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#Bowl"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#YellowCurryIngredient -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#YellowCurryIngredient">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SauceIngredient"/>
     </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#AubergineIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#ChickpeaIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#RadishIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BeansIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BellPepperIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CabbageIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CauliflowerIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#ColeslawIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CucumberIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#EggplantIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MushroomIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#OliveIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#OnionIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PotatoIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SpinachIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TomatoIngredient"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#AubergineIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#ChickpeaIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#RadishIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BeansIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BellPepperIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CabbageIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CauliflowerIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#ColeslawIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CucumberIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#EggplantIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LettuceIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MushroomIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#OliveIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PotatoIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SpinachIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TomatoIngredient"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ameer/ontologies/2023/10/untitled-ontology-6#BrownBeansIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BlackBeansIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#EdamameIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GreenBeansIngredient"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#AsianFresh"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CowAndWow"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#DoubleEastFeast"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#FunkyCalledTahina"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GreensAndBeans"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#KingKofte"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeatballMadness"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MixAndMingle"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#OysterAndOats"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RoastedChicks"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SuperWow"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TheYellowOne"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BeefIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#ChickenIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#LambIngredient"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#Bowl"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BowlBase"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BowlIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#Bread"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#Dressing"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#BulgurBase"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#QuinoaBase"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RiceBase"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CashewNutsIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GadogadoIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PeanutIngredient"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CheeseIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#FruitIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HumusIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeatIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MusakaaIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#NutIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SauceIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TempehIngredient"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#CheeseIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#FruitIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HerbsIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#HumusIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#MeatIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#NutIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#SauceIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TempehIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#VegetableIngredient"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#GarlicDressing"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#PeanutDressing"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#RedBellPepperDressing"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/toni/ontologies/2023/10/untitled-ontology-4#TahiniDressing"/>
+        </owl:members>
+    </rdf:Description>
 </rdf:RDF>
 
 
