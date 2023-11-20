@@ -54,12 +54,6 @@ for axiom in axioms:
     list.append(formatter.format(axiom))
 
 class CompletionRulesApplication:
-    def __init__(self, individual, concept, tBox) -> None:
-        self.individual = individual
-        self.concept = concept
-        self.tBox = tBox
-        self.ruleApplication()
-
     def getConcept(self):
         if self.concept in self.tBox:
             print(f"Found the concept {self.concept}")
@@ -82,15 +76,13 @@ class CompletionRulesApplication:
     def existenceRuleTwo(self):
         pass
 
-    def ruleApplication(self):
-        conceptType = self.concept.getClass().getSimpleName()
+    def ruleApplication(self, subsume, concept, tbox):
+        conceptType = concept.getClass().getSimpleName()
+        print()
+        print(formatter.format(concept))
+        print(subsume)
         if conceptType == "ConceptName":
             self.getConcept()
         elif conceptType == "ConceptConjunction":
             self.conjunctionRule()
         print(test)
-
-
-
-
-test = CompletionRulesApplication("d0", conjunctionAB, list)

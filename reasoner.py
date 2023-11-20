@@ -13,19 +13,29 @@ parser = gateway.getOWLParser()
 # get a formatter to print in nice DL format
 formatter = gateway.getSimpleDLFormatter()
 
+ELConcepts = ["UniversalRoleRestriction", "ConceptDisjunction", "ConceptComplement"]
+
 class Reasoner(CompletionRulesApplication):
     def __init__(self, ontology) -> None:
-        self.onotology = ontology
-        self.reasonerDict = {"d0": None}
+        self.ontology = parser.parseFile(ontology)
 
-    def parseOntology(self):
-        return self.ontology.tbox()
+    def parseOntologyTBox(self):
+        tbox = self.ontology.tbox()
+        return tbox.getAxioms()
 
-    def getSubsumers(self, subsumed):
-        self.reasonerDict["d0"] = subsumed
+    def parseOntologyConcept(self):
+        listOfConcepts = []
+        allConcepts = self.ontology.getSubConcepts()
+        for concept in allConcepts:
+            if concept.getClass().getSimpleName() not in ELConcepts:
+                listOfConcepts.append(concept)
+        return listOfConcepts
+
+    def getSubsumers(self, subsume):
+        allConcepts = self.parseOntologyConcept()
         updated = True
-        for concept in self.reasonerDict.keys():
-            self.ruleApplication(self.reasonerDict[concept])
+        for concept in allConcepts:
+            self.ruleApplication(subsume, concept, self.parseOntologyTBox())
         
 
 
