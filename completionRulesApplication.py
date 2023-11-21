@@ -11,9 +11,11 @@ formatter = gateway.getSimpleDLFormatter()
 
 class CompletionRulesApplication:
     def __init__(self) -> None:
-        self.reasonerDict = None
         self.tBox = None
         self.concept = None
+
+    def searchAxioms(self):
+        pass
 
     # I dont think this is needed since we are doing a checkup for the concept at the start when providing a subsume
     def getConcept(self, conceptDict):
@@ -23,12 +25,10 @@ class CompletionRulesApplication:
         else:
             print(f"Concept {conceptDict} exists")
 
-    def conjunctionRule(self, conceptDict, individual, concept=None, tbox=None):
+    def conjunctionRule(self, conceptDict, individual):
         for conjunct in conceptDict.getConjuncts():
             if conjunct not in self.reasonerDict.values():
-                self.reasonerDict[individual].append(formatter.format(conjunct))
-            elif conjunct not in self.reasonerDict.values():
-                self.reasonerDict[individual].append(formatter.format(conjunct))
+                self.reasonerDict[individual].append(conjunct)
 
     def conjunctionRuleTwo(self):
         pass
@@ -39,25 +39,25 @@ class CompletionRulesApplication:
     def existenceRuleTwo(self):
         pass
 
-    def ruleApplication(self, reasonerDict, concept, tBox):
-        self.reasonerDict = reasonerDict
-        self.tBox = tBox
-        self.concept = concept
-        updated = True
-        while updated:
-            updated = False
-            for individual in reasonerDict.keys():
-                conceptDictList = reasonerDict[individual]
-                for conceptDict in conceptDictList:
-                    print(conceptDict)
-                    conceptDictType = conceptDict.getClass().getSimpleName()
-                    print()
-                    print(formatter.format(concept))
-                    print(conceptDict)
-                    
-                    # right now dont see the point in this 
-                    # if conceptDictType == "ConceptName":
-                    #     self.getConcept(conceptDict)
-                    if conceptDictType == "ConceptConjunction":
-                        self.conjunctionRule(conceptDictList, individual)
-                        updated = True
+    # def ruleApplication(self, reasonerDict, concept, tBox):
+    #     self.reasonerDict = reasonerDict
+    #     self.tBox = tBox
+    #     self.concept = concept
+    #     self.updated = True
+    #     self.
+    #     while self.updated:
+    #         self.updated = False
+    #         for individual in reasonerDict.keys():
+    #             conceptDictList = reasonerDict[individual]
+    #             for conceptDict in conceptDictList:
+    #                 conceptDictType = conceptDict.getClass().getSimpleName()
+    #                 print()
+    #                 print(self.reasonerDict)
+    #                 if conceptDictType == "ConceptName":
+    #                     break
+    #                 if conceptDictType == "ConceptConjunction":
+    #                     self.conjunctionRule(conceptDict, individual)
+    #                     self.updated = True
+    #                     break
+    #                 if conceptDictType == "ExistentialRoleRestriction":
+    #                     pass

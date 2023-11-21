@@ -19,6 +19,9 @@ class Reasoner(CompletionRulesApplication):
     def __init__(self, ontology) -> None:
         self.ontology = parser.parseFile(ontology)
         self.reasonerDict = {"d0": []}
+        self.updated = True
+        self.positionSaver = None
+        self.updatedKey = None
 
     def parseOntologyTBox(self):
         tbox = self.ontology.tbox()
@@ -35,8 +38,30 @@ class Reasoner(CompletionRulesApplication):
     def getSubsumers(self, subsume):
         allConcepts = self.parseOntologyConcept()
         self.reasonerDict["d0"].append(subsume)
-        for concept in allConcepts:
-            self.ruleApplication(self.reasonerDict, concept, self.parseOntologyTBox())
+        while self.updated:
+            self.updated = False
+            for individual in self.reasonerDict.keys():
+                conceptDictList = self.reasonerDict[individual]
+                for counter in range(len(conceptDictList)):
+                    # To keep track of concepts which were ran through the rules so we dont get stuck in an infinite loop
+                    if counter == self.positionSaver:
+                        continue
+                    else:
+                        conceptDictType = conceptDictList[counter].getClass().getSimpleName()
+                        print()
+                        print(self.reasonerDict)
+                        if conceptDictType == "ConceptName":
+                            break
+                        if conceptDictType == "ConceptConjunction":
+                            self.conjunctionRule(conceptDictList[counter], individual)
+                            self.updated = True
+                            self.updatedKey = individual
+                            self.positionSaver = counter
+                            break
+                        if conceptDictType == "ExistentialRoleRestriction":
+                            pass
+        
+        print(self.reasonerDict)
         
 
 
@@ -44,7 +69,11 @@ reasoner = Reasoner("pizza.owl")
 
 elFactory = gateway.getELFactory()
 subsume = elFactory.getConceptName('"CowAndWow"')
-reasoner.getSubsumers(subsume)
+
+conceptA = elFactory.getConceptName("A")
+conceptB = elFactory.getConceptName("B")
+conjunctionAB = elFactory.getConjunction(conceptA, conceptB)
+reasoner.getSubsumers(conjunctionAB)
 
 # reasoner = Reasoner(sys.argv[1])
 # reasoner.getSubsumers(sys.argv[2])

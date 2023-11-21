@@ -43,6 +43,8 @@ print()
 print("There are ",len(allConcepts), " concepts occurring in the ontology")
 print("These are the concepts occurring in the ontology:")
 print([formatter.format(x) for x in allConcepts])
+print([x.getClass().getSimpleName()  for x in allConcepts])
+
 
 conceptNames = ontology.getConceptNames()
 
