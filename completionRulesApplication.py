@@ -23,18 +23,14 @@ class CompletionRulesApplication:
         else:
             print(f"Concept {conceptDict} exists")
 
-    def conjunctionRule(self, conceptDict, individual, concept=None, tbox=None):
+    def conjunctionRule(self, conceptDict, node, concept=None, tbox=None):
         for conjunct in conceptDict.getConjuncts():
             if conjunct not in self.reasonerDict.values():
-                self.reasonerDict[individual].append(formatter.format(conjunct))
-            elif conjunct not in self.reasonerDict.values():
-                self.reasonerDict[individual].append(formatter.format(conjunct))
+                self.reasonerDict[node].append(formatter.format(conjunct))
 
-    def conjunctionRuleTwo(self, conceptDict, individual):
-        if conceptDict.getConjuncts() not in self.reasonerDict.values():
-            self.reasonerDict[individual].append(formatter.format(conceptDict.getConjuncts()))
-
-        if(not(foundConjunction) and conceptType == "ConceptConjunction")
+    def conjunctionRuleTwo(self, conceptDict, node):
+            
+            self.reasonerDict[node].append(formatter.format(conceptDict.getConjuncts()))
 
     def existenceRuleOne(self):
         pass
