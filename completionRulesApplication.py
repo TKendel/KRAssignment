@@ -1,0 +1,66 @@
+from py4j.java_gateway import JavaGateway
+
+# connect to the java gateway of dl4python
+gateway = JavaGateway()
+
+# get a parser from OWL files to DL ontologies
+parser = gateway.getOWLParser()
+
+# get a formatter to print in nice DL format
+formatter = gateway.getSimpleDLFormatter()
+
+class CompletionRulesApplication:
+    def __init__(self) -> None:
+        self.reasonerDict = None
+        self.tBox = None
+        self.concept = None
+
+    # I dont think this is needed since we are doing a checkup for the concept at the start when providing a subsume
+    def getConcept(self, conceptDict):
+        # Probably dont need these messages but i kept it for debugging purposes
+        if conceptDict not in self.tBox:
+            print(f"The concept {conceptDict} does not exist!")
+        else:
+            print(f"Concept {conceptDict} exists")
+
+    def conjunctionRule(self, conceptDict, individual, concept=None, tbox=None):
+        for conjunct in conceptDict.getConjuncts():
+            if conjunct not in self.reasonerDict.values():
+                self.reasonerDict[individual].append(formatter.format(conjunct))
+            elif conjunct not in self.reasonerDict.values():
+                self.reasonerDict[individual].append(formatter.format(conjunct))
+
+    def conjunctionRuleTwo(self, conceptDict, individual):
+        if conceptDict.getConjuncts() not in self.reasonerDict.values():
+            self.reasonerDict[individual].append(formatter.format(conceptDict.getConjuncts()))
+
+        if(not(foundConjunction) and conceptType == "ConceptConjunction")
+
+    def existenceRuleOne(self):
+        pass
+
+    def existenceRuleTwo(self):
+        pass
+
+    def ruleApplication(self, reasonerDict, concept, tBox):
+        self.reasonerDict = reasonerDict
+        self.tBox = tBox
+        self.concept = concept
+        updated = True
+        while updated:
+            updated = False
+            for individual in reasonerDict.keys():
+                conceptDictList = reasonerDict[individual]
+                for conceptDict in conceptDictList:
+                    print(conceptDict)
+                    conceptDictType = conceptDict.getClass().getSimpleName()
+                    print()
+                    print(formatter.format(concept))
+                    print(conceptDict)
+                    
+                    # right now dont see the point in this 
+                    # if conceptDictType == "ConceptName":
+                    #     self.getConcept(conceptDict)
+                    if conceptDictType == "ConceptConjunction":
+                        self.conjunctionRule(conceptDictList, individual)
+                        updated = True
