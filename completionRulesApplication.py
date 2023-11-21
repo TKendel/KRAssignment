@@ -9,63 +9,26 @@ parser = gateway.getOWLParser()
 # get a formatter to print in nice DL format
 formatter = gateway.getSimpleDLFormatter()
 
-
-
-# load an ontology from a file
-ontology = parser.parseFile("pizza.owl")
-
-print("Loaded the ontology!")
-
-# IMPORTANT: the algorithm from the lecture assumes conjunctions to always be over two concepts
-# Ontologies in OWL can however have conjunctions over an arbitrary number of concpets.
-# The following command changes all conjunctions so that they have at most two conjuncts
-print("Converting to binary conjunctions")
-gateway.convertToBinaryConjunctions(ontology)
-
-# get the TBox axioms
-tbox = ontology.tbox()
-axioms = tbox.getAxioms()
-
-# Creating EL concepts and axioms
-
-
-elFactory = gateway.getELFactory()
-
-conceptA = elFactory.getConceptName("A")
-conceptB = elFactory.getConceptName("B")
-conjunctionAB = elFactory.getConjunction(conceptA, conceptB)
-role = elFactory.getRole("r")
-existential = elFactory.getExistentialRoleRestriction(role,conjunctionAB)
-top = elFactory.getTop()
-conjunction2 = elFactory.getConjunction(top,existential)
-
-gci = elFactory.getGCI(conjunctionAB,conjunction2)
-print((formatter.format(gci)))
-
-elFactory = gateway.getELFactory()
-
-conceptA = elFactory.getConceptName("A")
-conceptB = elFactory.getConceptName("B")
-conjunctionAB = elFactory.getConjunction(conceptA, conceptB)
-test = {"d0": [formatter.format(conjunctionAB)]}
-
-list = []
-for axiom in axioms:
-    list.append(formatter.format(axiom))
-
 class CompletionRulesApplication:
-    def getConcept(self):
-        if self.concept in self.tBox:
-            print(f"Found the concept {self.concept}")
+    def __init__(self) -> None:
+        self.reasonerDict = None
+        self.tBox = None
+        self.concept = None
 
-    def conjunctionRule(self):
-        print(self.concept)
-        for conjunct in self.concept.getConjuncts():
-            print(" - "+formatter.format(conjunct))
-            if conjunct not in test.values():
-                test[self.individual].append(formatter.format(conjunct))
-            elif conjunct not in test.values():
-                test[self.individual].append(formatter.format(conjunct))
+    # I dont think this is needed since we are doing a checkup for the concept at the start when providing a subsume
+    def getConcept(self, conceptDict):
+        # Probably dont need these messages but i kept it for debugging purposes
+        if conceptDict not in self.tBox:
+            print(f"The concept {conceptDict} does not exist!")
+        else:
+            print(f"Concept {conceptDict} exists")
+
+    def conjunctionRule(self, conceptDict, individual, concept=None, tbox=None):
+        for conjunct in conceptDict.getConjuncts():
+            if conjunct not in self.reasonerDict.values():
+                self.reasonerDict[individual].append(formatter.format(conjunct))
+            elif conjunct not in self.reasonerDict.values():
+                self.reasonerDict[individual].append(formatter.format(conjunct))
 
     def conjunctionRuleTwo(self):
         pass
@@ -76,13 +39,25 @@ class CompletionRulesApplication:
     def existenceRuleTwo(self):
         pass
 
-    def ruleApplication(self, subsume, concept, tbox):
-        conceptType = concept.getClass().getSimpleName()
-        print()
-        print(formatter.format(concept))
-        print(subsume)
-        if conceptType == "ConceptName":
-            self.getConcept()
-        elif conceptType == "ConceptConjunction":
-            self.conjunctionRule()
-        print(test)
+    def ruleApplication(self, reasonerDict, concept, tBox):
+        self.reasonerDict = reasonerDict
+        self.tBox = tBox
+        self.concept = concept
+        updated = True
+        while updated:
+            updated = False
+            for individual in reasonerDict.keys():
+                conceptDictList = reasonerDict[individual]
+                for conceptDict in conceptDictList:
+                    print(conceptDict)
+                    conceptDictType = conceptDict.getClass().getSimpleName()
+                    print()
+                    print(formatter.format(concept))
+                    print(conceptDict)
+                    
+                    # right now dont see the point in this 
+                    # if conceptDictType == "ConceptName":
+                    #     self.getConcept(conceptDict)
+                    if conceptDictType == "ConceptConjunction":
+                        self.conjunctionRule(conceptDictList, individual)
+                        updated = True

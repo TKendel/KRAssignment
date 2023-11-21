@@ -18,6 +18,7 @@ ELConcepts = ["UniversalRoleRestriction", "ConceptDisjunction", "ConceptCompleme
 class Reasoner(CompletionRulesApplication):
     def __init__(self, ontology) -> None:
         self.ontology = parser.parseFile(ontology)
+        self.reasonerDict = {"d0": []}
 
     def parseOntologyTBox(self):
         tbox = self.ontology.tbox()
@@ -33,14 +34,17 @@ class Reasoner(CompletionRulesApplication):
 
     def getSubsumers(self, subsume):
         allConcepts = self.parseOntologyConcept()
-        updated = True
+        self.reasonerDict["d0"].append(subsume)
         for concept in allConcepts:
-            self.ruleApplication(subsume, concept, self.parseOntologyTBox())
+            self.ruleApplication(self.reasonerDict, concept, self.parseOntologyTBox())
         
 
 
 reasoner = Reasoner("pizza.owl")
-reasoner.getSubsumers("CowAndWow")
+
+elFactory = gateway.getELFactory()
+subsume = elFactory.getConceptName('"CowAndWow"')
+reasoner.getSubsumers(subsume)
 
 # reasoner = Reasoner(sys.argv[1])
 # reasoner.getSubsumers(sys.argv[2])
