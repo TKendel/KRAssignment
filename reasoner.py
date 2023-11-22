@@ -15,23 +15,16 @@ formatter = gateway.getSimpleDLFormatter()
 
 ELConcepts = ["UniversalRoleRestriction", "ConceptDisjunction", "ConceptComplement"]
 
-def print_java_object_dict(dictionary):
-    to_print = dict(map(lambda x : (x[0], list(map(lambda object : formatter.format(object), x[1]))), dictionary.items()))
-    print(to_print)
-    return to_print
-
-def print_java_object_list(object_list):
-    to_print = list(map(lambda object : formatter.format(object), object_list))
-    print(to_print)
-    return to_print
-
 class Reasoner(CompletionRulesApplication):
     def __init__(self, ontology) -> None:
         self.ontology = parser.parseFile(ontology)
         self.reasonerDict = {"d0": []}
         self.updated = True
         self.positionSaver = None
-        self.updatedKey = None
+        self.graph = {}
+        self.key_index = 0
+        self.concept = None
+        self.node = None
 
     def parseOntologyTBox(self):
         tbox = self.ontology.tbox()
@@ -48,45 +41,55 @@ class Reasoner(CompletionRulesApplication):
     def getSubsumers(self, subsume):
         allConcepts = self.parseOntologyConcept()
         self.reasonerDict["d0"].append(subsume)
+        self.graph["d0"] = []
         while self.updated:
+            print(self.updated)
             self.updated = False
-            # print_java_object_dict(self.reasonerDict)
+            print("New turn")
+            self.print_java_object_dict(self.reasonerDict)
+            new_node_to_dict = False
             for key, item in self.reasonerDict.items(): # key means node here, like d0
                 for index, concept in enumerate(item):  # item is the list of concepts like ['(A ⊓ B)', 'A', 'B']
-                    # print_java_object_list(item)
-                    # To keep track of concepts which were ran through the rules so we dont get stuck in an infinite loop
-                    if index == self.positionSaver:
-                        continue
-                    else:
-                        conceptDictType = concept.getClass().getSimpleName()
-                        # print(conceptDictType)
-                        # concept.getConjuncts()
-                        # print_java_object_dict(self.reasonerDict)
-                        # self.conjunctionRuleTwo(concept, key)
-                        if conceptDictType == "ConceptName":
-                            break
-                        if conceptDictType == "ConceptConjunction":
-                            self.conjunctionRule(concept, key)
-                            self.updated = True
-                            self.updatedKey = key
-                            self.positionSaver = index
-                            break
-                        if conceptDictType == "ExistentialRoleRestriction":
-                            pass
+                    self.print_java_object_list(item)
+                    print("fasz")
+                    print(len(item))
+                    conceptDictType = concept.getClass().getSimpleName()
+                    print(f"Item: {formatter.format(concept)}; Type: {conceptDictType}")
+
+                    if conceptDictType == "ConceptConjunction":
+                        self.updated = self.conjunctionRule(concept, key)
+                    if conceptDictType == "ExistentialRoleRestriction":
+                        new_node_to_dict = self.existenceRuleOne(concept, key)
+                    if new_node_to_dict:
+                        break
+
+            if new_node_to_dict:
+                self.reasonerDict[f"d{self.key_index}"] = [self.concept.filler()]
+                self.graph[self.node].append((self.concept.role(), f"d{self.key_index}"))
+                self.updated = True
         
-        print(self.reasonerDict)
+        self.print_java_object_dict(self.reasonerDict)
         
 
 
 reasoner = Reasoner("pizza.owl")
 
 elFactory = gateway.getELFactory()
-subsume = elFactory.getConceptName('"CowAndWow"')
+# subsume = elFactory.getConceptName('"CowAndWow"')
 
 conceptA = elFactory.getConceptName("A")
+r = elFactory.getRole("r")
+t = elFactory.getRole("t")
 conceptB = elFactory.getConceptName("B")
+exist_r_B = elFactory.getExistentialRoleRestriction(r, conceptB)
+conceptC = elFactory.getConceptName("C")
+conceptD = elFactory.getConceptName("D")
 conjunctionAB = elFactory.getConjunction(conceptA, conceptB)
-reasoner.getSubsumers(conjunctionAB)
+conjunctionAD = elFactory.getConjunction(conceptA, conceptD)
+conjunctionCD = elFactory.getConjunction(conceptC, conceptD)
+conjunctionABAD = elFactory.getConjunction(conjunctionAB, conjunctionAD)
+conjunctionArB = elFactory.getConjunction(conceptA, exist_r_B)
+reasoner.getSubsumers(conjunctionArB)
 
 # reasoner = Reasoner(sys.argv[1])
 # reasoner.getSubsumers(sys.argv[2])

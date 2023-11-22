@@ -13,6 +13,19 @@ class CompletionRulesApplication:
     def __init__(self) -> None:
         self.tBox = None
         self.concept = None
+        self.graph = {}
+        self.key_index = 0
+        self.node = None
+
+    def print_java_object_dict(self, dictionary):
+        to_print = dict(map(lambda x : (x[0], list(map(lambda object : formatter.format(object), x[1]))), dictionary.items()))
+        print(to_print)
+        return to_print
+
+    def print_java_object_list(self, object_list):
+        to_print = list(map(lambda object : formatter.format(object), object_list))
+        print(to_print)
+        return to_print
 
     def searchAxioms(self):
         pass
@@ -25,39 +38,40 @@ class CompletionRulesApplication:
         else:
             print(f"Concept {conceptDict} exists")
 
-    def conjunctionRule(self, conceptDict, individual):
-        for conjunct in conceptDict.getConjuncts():
-            if conjunct not in self.reasonerDict.values():
-                self.reasonerDict[individual].append(conjunct)
+    def conjunctionRule(self, concept, node):
+        buffer = False
+        for conjunct in concept.getConjuncts():
+            if conjunct not in self.reasonerDict[node]:
+                self.reasonerDict[node].append(conjunct)
+                buffer = True
+        return buffer
+    
+    def is_in_concept(self, concept_to_check, node_to_check):
+        if concept_to_check.getClass().getSimpleName() == "ConceptConjunction":
+            return all(x in self.reasonerDict[node_to_check] for x in concept_to_check.getConjuncts()) 
+        return concept_to_check in self.reasonerDict[node_to_check]
 
-    def conjunctionRuleTwo(self):
-        pass
+    # def conjunctionRuleTwo(self, concept_lhs, node):
+    #     temporary = []
+    #     for concept_rhs in self.reasonerDict[node]:
+    #         if concept_rhs.getClass().getSimpleName() != "ConceptConjunction" and concept_rhs is not concept_lhs:
+    #             temporary.append(gateway.getELFactory().getConjunction(concept_lhs, concept_rhs))
+    #     self.reasonerDict[node].extend(list(set(temporary) - set(self.reasonerDict[node])))
 
-    def existenceRuleOne(self):
-        pass
+    def existenceRuleOne(self, concept, current_node):
+        role = concept.role()
+        filler = concept.filler()
+        # print(self.graph)
+        for (relation_iter, node_iter) in self.graph[current_node]: # we go through the relations
+            if role == relation_iter and self.reasonerDict[node_iter][0] == filler: # if it already exists in an node
+                return False # we have nothing to do
+        
+        self.key_index += 1
+        self.concept = concept
+        self.node = current_node
+        return True
 
     def existenceRuleTwo(self):
         pass
 
-    # def ruleApplication(self, reasonerDict, concept, tBox):
-    #     self.reasonerDict = reasonerDict
-    #     self.tBox = tBox
-    #     self.concept = concept
-    #     self.updated = True
-    #     self.
-    #     while self.updated:
-    #         self.updated = False
-    #         for individual in reasonerDict.keys():
-    #             conceptDictList = reasonerDict[individual]
-    #             for conceptDict in conceptDictList:
-    #                 conceptDictType = conceptDict.getClass().getSimpleName()
-    #                 print()
-    #                 print(self.reasonerDict)
-    #                 if conceptDictType == "ConceptName":
-    #                     break
-    #                 if conceptDictType == "ConceptConjunction":
-    #                     self.conjunctionRule(conceptDict, individual)
-    #                     self.updated = True
-    #                     break
-    #                 if conceptDictType == "ExistentialRoleRestriction":
-    #                     pass
+    
