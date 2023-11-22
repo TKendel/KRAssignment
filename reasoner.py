@@ -15,23 +15,19 @@ formatter = gateway.getSimpleDLFormatter()
 
 ELConcepts = ["UniversalRoleRestriction", "ConceptDisjunction", "ConceptComplement"]
 
-elFactory = gateway.getELFactory()
-
-
-conceptA = elFactory.getConceptName("A")
-conceptB = elFactory.getConceptName("B")
-conjunctionAB = elFactory.getConjunction(conceptA, conceptB)
-role = elFactory.getRole("r")
-existential = elFactory.getExistentialRoleRestriction(role,conceptA)
-
 class Reasoner(CompletionRulesApplication):
     def __init__(self, ontology) -> None:
         self.ontology = parser.parseFile(ontology)
-        self.reasonerDict = {"d0": [conceptB, existential]}
+        self.reasonerDict = {"d0": []}
+        self.nodeCounter = 0
+        self.routingTable = {}
         self.subsumer = 0
         self.updated = True
         self.positionSaver = None
-        self.updatedKey = None
+        self.graph = {}
+        self.key_index = 0
+        self.concept = None
+        self.node = None
 
     def parseOntologyTBox(self):
         tbox = self.ontology.tbox()
@@ -50,35 +46,39 @@ class Reasoner(CompletionRulesApplication):
         axioms = self.parseOntologyTBox()
         self.reasonerDict["d0"].append(subsume)
         for concept in allConcepts:
-            '''
-            Right now for each concept that we are checking we are also dismantling the provided concept / our subsume.
-            This can be done better but for now lets keep it like this unless you have a better solution
-            My brain is not working as you saw with the conjuntuon rule :)
-            '''
+            print(self.reasonerDict)
+            self.graph["d0"] = []
             while self.updated:
+                print(self.updated)
                 self.updated = False
-                for individual in self.reasonerDict.keys():
-                    conceptDictList = self.reasonerDict[individual]
-                    for counter in range(len(conceptDictList)):
-                        # To keep track of concepts which were ran through the rules so we dont get stuck in an infinite loop
-                        if counter == self.positionSaver:
-                            continue
-                        elif concept in self.reasonerDict["d0"]:
+                print("New turn")
+                self.print_java_object_dict(self.reasonerDict)
+                new_node_to_dict = False
+                for key in list(self.reasonerDict): # key means node here, like d0
+                    for index, conceptDict in enumerate(self.reasonerDict[key]):  # item is the list of concepts like ['(A ⊓ B)', 'A', 'B']
+                        if concept in self.reasonerDict["d0"]:
                             self.subsumer += 1
                         else:
-                            conceptDictType = conceptDictList[counter].getClass().getSimpleName()
-                            print()
-                            print(self.reasonerDict)
-                            if conceptDictType == "ConceptName":
-                                break
-                            elif conceptDictType == "ConceptConjunction":
-                                self.conjunctionRule(conceptDictList[counter], individual)
-                                self.updated = True
-                                self.updatedKey = individual
-                                self.positionSaver = counter
-                                break
-                            elif conceptDictType == "ExistentialRoleRestriction":
-                                self.existenceRuleOne()
+                            self.print_java_object_list(self.reasonerDict[key])
+                            print("fasz")
+                            print(len(self.reasonerDict[key]))
+                            conceptDictType = conceptDict.getClass().getSimpleName()
+                            print(f"Item: {formatter.format(conceptDict)}; Type: {conceptDictType}")
+
+                            if conceptDictType == "ConceptConjunction":
+                                self.updated = self.conjunctionRule(conceptDict, key)
+                            if conceptDictType == "ExistentialRoleRestriction":
+                                self.existenceRuleOnePointTwo(conceptDict, key)
+                            self.existenceRuleTwo()
+
+                # if new_node_to_dict:
+                #     self.reasonerDict[f"d{self.key_index}"] = [self.concept.filler()]
+                #     self.graph[self.node].append((self.concept.role(), f"d{self.key_index}"))
+                #     self.updated = True
+
+            self.print_java_object_dict(self.reasonerDict)
+            print(self.graph)
+
                 # for axiom in axioms:
                 #     for individual in self.reasonerDict.keys():
                 #         conceptDictList = self.reasonerDict[individual]
@@ -97,9 +97,6 @@ class Reasoner(CompletionRulesApplication):
                 #                 self.updated = True
                 #                 break
 
-        print(self.reasonerDict)
-        
-
 
 reasoner = Reasoner("pizza.owl")
 
@@ -107,11 +104,16 @@ elFactory = gateway.getELFactory()
 subsume = elFactory.getConceptName('"Margherita"')
 
 conceptA = elFactory.getConceptName("A")
+r = elFactory.getRole("r")
+t = elFactory.getRole("t")
 conceptB = elFactory.getConceptName("B")
+exist_r_B = elFactory.getExistentialRoleRestriction(r, conceptB)
+conceptC = elFactory.getConceptName("C")
+conceptD = elFactory.getConceptName("D")
 conjunctionAB = elFactory.getConjunction(conceptA, conceptB)
 role = elFactory.getRole("r")
 existential = elFactory.getExistentialRoleRestriction(role,conjunctionAB)
-reasoner.getSubsumers(conjunctionAB)
+reasoner.getSubsumers(existential)
 
 # reasoner = Reasoner(sys.argv[1])
 # reasoner.getSubsumers(sys.argv[2])
