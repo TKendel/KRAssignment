@@ -15,10 +15,19 @@ formatter = gateway.getSimpleDLFormatter()
 
 ELConcepts = ["UniversalRoleRestriction", "ConceptDisjunction", "ConceptComplement"]
 
+elFactory = gateway.getELFactory()
+
+
+conceptA = elFactory.getConceptName("A")
+conceptB = elFactory.getConceptName("B")
+conjunctionAB = elFactory.getConjunction(conceptA, conceptB)
+role = elFactory.getRole("r")
+existential = elFactory.getExistentialRoleRestriction(role,conceptA)
+
 class Reasoner(CompletionRulesApplication):
     def __init__(self, ontology) -> None:
         self.ontology = parser.parseFile(ontology)
-        self.reasonerDict = {"d0": []}
+        self.reasonerDict = {"d0": [conceptB, existential]}
         self.subsumer = 0
         self.updated = True
         self.positionSaver = None
@@ -69,23 +78,24 @@ class Reasoner(CompletionRulesApplication):
                                 self.positionSaver = counter
                                 break
                             elif conceptDictType == "ExistentialRoleRestriction":
-                                pass
-                for axiom in axioms:
-                    for individual in self.reasonerDict.keys():
-                        conceptDictList = self.reasonerDict[individual]
-                        for conceptDict in conceptDictList:
-                            strConcept = formatter.format(conceptDict)
-                            strAxiom = formatter.format(axiom)
-                            if formatter.format(conceptDict) not in formatter.format(axiom):
-                                continue
-                            else:
-                                lhsAxiom = formatter.format(axiom.lhs())
-                                rhsAxiom = formatter.format(axiom.rhs())
-                                # Add boht the left and right side into the d array 
-                                self.reasonerDict[individual].append(lhsAxiom)
-                                self.reasonerDict[individual].append(rhsAxiom)
-                                self.updated = True
-                                break
+                                self.existenceRuleOne()
+                # for axiom in axioms:
+                #     for individual in self.reasonerDict.keys():
+                #         conceptDictList = self.reasonerDict[individual]
+                #         for conceptDict in conceptDictList:
+                #             print(conceptDict)
+                #             strConcept = formatter.format(conceptDict)
+                #             strAxiom = formatter.format(axiom)
+                #             if formatter.format(conceptDict) not in formatter.format(axiom):
+                #                 continue
+                #             else:
+                #                 lhsAxiom = formatter.format(axiom.lhs())
+                #                 rhsAxiom = formatter.format(axiom.rhs())
+                #                 # Add boht the left and right side into the d array 
+                #                 self.reasonerDict[individual].append(lhsAxiom)
+                #                 self.reasonerDict[individual].append(rhsAxiom)
+                #                 self.updated = True
+                #                 break
 
         print(self.reasonerDict)
         
@@ -99,7 +109,9 @@ subsume = elFactory.getConceptName('"Margherita"')
 conceptA = elFactory.getConceptName("A")
 conceptB = elFactory.getConceptName("B")
 conjunctionAB = elFactory.getConjunction(conceptA, conceptB)
-reasoner.getSubsumers(subsume)
+role = elFactory.getRole("r")
+existential = elFactory.getExistentialRoleRestriction(role,conjunctionAB)
+reasoner.getSubsumers(conjunctionAB)
 
 # reasoner = Reasoner(sys.argv[1])
 # reasoner.getSubsumers(sys.argv[2])

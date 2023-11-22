@@ -27,14 +27,17 @@ class CompletionRulesApplication:
 
     def conjunctionRule(self, conceptDict, individual):
         for conjunct in conceptDict.getConjuncts():
-            if conjunct not in self.reasonerDict.values():
+            if conjunct not in self.reasonerDict[individual]:
                 self.reasonerDict[individual].append(conjunct)
 
     def conjunctionRuleTwo(self):
         pass
 
-    def existenceRuleOne(self):
-        pass
+    def existenceRuleOne(self, conceptDict, individual):
+        for individual in self.reasonerDict.keys():
+            conceptDictList = self.reasonerDict[individual][0]
+            for counter in range(len(conceptDictList)):
+                pass
 
     def existenceRuleTwo(self):
         pass
