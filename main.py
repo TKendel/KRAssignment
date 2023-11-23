@@ -33,6 +33,7 @@ axioms = tbox.getAxioms()
 
 print("These are the axioms in the TBox:")
 for axiom in axioms:
+    print(axiom.getClass().getSimpleName())
     print(formatter.format(axiom))
 
 
@@ -65,7 +66,7 @@ for axiom in axioms:
     if(not(foundGCI)
        and axiomType == "GeneralConceptInclusion"):
         print("I found a general concept inclusion:")
-        print(formatter.format(axiom))
+        print(axiom)
         print("The left hand side of the axiom is: ", formatter.format(axiom.lhs()))
         print("The right hand side of the axiom is: ", formatter.format(axiom.rhs()))
         print()

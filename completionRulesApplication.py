@@ -16,6 +16,7 @@ class CompletionRulesApplication:
         self.graph = {}
         self.key_index = 0
         self.node = None
+        self.elFactory = gateway.getELFactory()
 
     def print_java_object_dict(self, dictionary):
         to_print = dict(map(lambda x : (x[0], list(map(lambda object : formatter.format(object), x[1]))), dictionary.items()))
@@ -24,7 +25,7 @@ class CompletionRulesApplication:
 
     def print_java_object_list(self, object_list):
         to_print = list(map(lambda object : formatter.format(object), object_list))
-        print(to_print)
+        # print(to_print)
         return to_print
 
     def searchAxioms(self):
@@ -51,12 +52,14 @@ class CompletionRulesApplication:
             return all(x in self.reasonerDict[node_to_check] for x in concept_to_check.getConjuncts()) 
         return concept_to_check in self.reasonerDict[node_to_check]
 
-    # def conjunctionRuleTwo(self, concept_lhs, node):
-    #     temporary = []
-    #     for concept_rhs in self.reasonerDict[node]:
-    #         if concept_rhs.getClass().getSimpleName() != "ConceptConjunction" and concept_rhs is not concept_lhs:
-    #             temporary.append(gateway.getELFactory().getConjunction(concept_lhs, concept_rhs))
-    #     self.reasonerDict[node].extend(list(set(temporary) - set(self.reasonerDict[node])))
+    def conjunctionRuleTwo(self, conceptDict, current_node):
+        for concept in self.reasonerDict[current_node]:
+            if concept != conceptDict:
+                conceptType = concept.getClass().getSimpleName()
+                if conceptType == "ConceptName" or conceptType == "ExistentialRoleRestriction":
+                    newConjuct = self.elFactory.getConjunction(conceptDict, concept)
+                    if newConjuct not in self.reasonerDict[current_node]:
+                        self.reasonerDict[current_node].append(newConjuct)
 
     def existenceRuleOne(self, concept, current_node):
         role = concept.role()
@@ -90,17 +93,17 @@ class CompletionRulesApplication:
                 self.routingTable[role] = [current_node, newNode]
 
     def existenceRuleTwo(self):
-        elFactory = gateway.getELFactory()
         # Route look up for every node in the dictionray
         for node, concepts in self.reasonerDict.items():
             for route, connectedNodes in self.routingTable.items():
                 # If route has on its r : [parent_node, child_node] parent node the current node,
                 # means there is a route coming out of the current node
                 if connectedNodes[0] == node:
-                    print(self.reasonerDict)
+                    # print(self.reasonerDict)
                     # Check all concepts inside which are just concept name. NOT SURE IF IT SHOUDL BE JUST CONCEPT NAMES
                     for conceptChildNode in self.reasonerDict[connectedNodes[1]]:
                         conceptChildNodeType = conceptChildNode.getClass().getSimpleName()
                         if conceptChildNodeType == 'ConceptName':
-                            existentialConcept = elFactory.getExistentialRoleRestriction(route, conceptChildNode)
-                            self.reasonerDict[node].append(existentialConcept)
+                            existentialConcept = self.elFactory.getExistentialRoleRestriction(route, conceptChildNode)
+                            if existentialConcept not in self.reasonerDict[node]:
+                                self.reasonerDict[node].append(existentialConcept)
