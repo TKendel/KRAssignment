@@ -30,6 +30,7 @@ class Reasoner(CompletionRulesApplication):
         self.concept = None
         self.node = None
         self.nodeExists = False
+        self.axiomFound = False
         self.elFactory = gateway.getELFactory()
 
     def parseOntologyTBox(self):
@@ -52,11 +53,12 @@ class Reasoner(CompletionRulesApplication):
     def getSubsumers(self, subsume):
         allConcepts = self.parseOntologyConcept()
         axioms = self.parseOntologyTBox()
-        for concept in allConcepts:
+        for mainConcept in allConcepts:
             # print(self.reasonerDict)
             self.reasonerDict = {"d0": []}
             self.reasonerDict["d0"].append(subsume)
             self.graph["d0"] = []
+            self.updated = True
             while self.updated:
                 # print(self.updated)
                 self.updated = False
@@ -65,7 +67,7 @@ class Reasoner(CompletionRulesApplication):
                 new_node_to_dict = False
                 for key in list(self.reasonerDict): # key means node here, like d0
                     for index, conceptDict in enumerate(self.reasonerDict[key]):  # item is the list of concepts like ['(A ⊓ B)', 'A', 'B']
-                        if concept in self.reasonerDict["d0"]:
+                        if mainConcept in self.reasonerDict["d0"]:
                             self.subsumer += 1
                             break
                         else:
@@ -87,6 +89,9 @@ class Reasoner(CompletionRulesApplication):
                 #     self.updated = True
 
                 for axiom in axioms:
+                    if self.axiomFound:
+                        self.axiomFound = False
+                        break
                     axiomType = axiom.getClass().getSimpleName()
                     # print(axiom)
                     # print(formatter.format(axiom))
@@ -102,12 +107,15 @@ class Reasoner(CompletionRulesApplication):
                                     # Add right side
                                     self.reasonerDict[individual].append(newGCIfirst.rhs())
                                     self.updated = True
-                                    break
+                                    self.axiomFound = True
+                                    
                                 if newGCIsecond.lhs() == conceptInList and newGCIsecond.rhs() not in conceptList:
                                     # Add right side
                                     self.reasonerDict[individual].append(newGCIsecond.rhs())
                                     self.updated = True
-                                    break
+                                    self.axiomFound = True
+                        if self.axiomFound:
+                            break
                     else:
                         lhsAxiom = axiom.lhs()
                         for individual, conceptList in self.reasonerDict.items():
@@ -118,12 +126,14 @@ class Reasoner(CompletionRulesApplication):
                                     if listOfConceptsInConjunction[0] in conceptList and listOfConceptsInConjunction[1] in conceptList:
                                         conceptList.append(axiom.rhs())
                                         self.updated = True
+                                        self.axiomFound = True
                                         break
                             else:
                                 if lhsAxiom in conceptList and axiom.rhs() not in conceptList:
                                     # add right side of the GCI
                                     conceptList.append(axiom.rhs())
                                     self.updated = True
+                                    self.axiomFound = True
                                     break
 
                 self.print_java_object_dict(self.reasonerDict)

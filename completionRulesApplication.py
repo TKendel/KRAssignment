@@ -28,9 +28,6 @@ class CompletionRulesApplication:
         # print(to_print)
         return to_print
 
-    def searchAxioms(self):
-        pass
-
     # I dont think this is needed since we are doing a checkup for the concept at the start when providing a subsume
     def getConcept(self, conceptDict):
         # Probably dont need these messages but i kept it for debugging purposes
