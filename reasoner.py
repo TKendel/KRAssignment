@@ -65,23 +65,22 @@ class Reasoner(CompletionRulesApplication):
                 # print("New turn")
                 # self.print_java_object_dict(self.reasonerDict)
                 new_node_to_dict = False
+                if mainConcept in self.reasonerDict["d0"]:
+                    self.subsumer += 1
+                    break
                 for key in list(self.reasonerDict): # key means node here, like d0
                     for index, conceptDict in enumerate(self.reasonerDict[key]):  # item is the list of concepts like ['(A ⊓ B)', 'A', 'B']
-                        if mainConcept in self.reasonerDict["d0"]:
-                            self.subsumer += 1
-                            break
-                        else:
-                            # self.print_java_object_list(self.reasonerDict[key])
-                            # print(len(self.reasonerDict[key]))
-                            conceptDictType = conceptDict.getClass().getSimpleName()
-                            # print(f"Item: {formatter.format(conceptDict)}; Type: {conceptDictType}")
-                            # if conceptDictType == "ConceptName":
-                            #     self.conjunctionRuleTwo(conceptDict, key)
-                            if conceptDictType == "ConceptConjunction":
-                                self.updated = self.conjunctionRule(conceptDict, key)
-                            if conceptDictType == "ExistentialRoleRestriction":
-                                self.existenceRuleOnePointTwo(conceptDict, key)
-                            self.existenceRuleTwo()
+                        # self.print_java_object_list(self.reasonerDict[key])
+                        # print(len(self.reasonerDict[key]))
+                        conceptDictType = conceptDict.getClass().getSimpleName()
+                        # print(f"Item: {formatter.format(conceptDict)}; Type: {conceptDictType}")
+                        # if conceptDictType == "ConceptName":
+                        #     self.conjunctionRuleTwo(conceptDict, key)
+                        if conceptDictType == "ConceptConjunction":
+                            self.updated = self.conjunctionRule(conceptDict, key)
+                        if conceptDictType == "ExistentialRoleRestriction":
+                            self.existenceRuleOnePointTwo(conceptDict, key)
+                        self.existenceRuleTwo()
 
                 # if new_node_to_dict:
                 #     self.reasonerDict[f"d{self.key_index}"] = [self.concept.filler()]
