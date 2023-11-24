@@ -82,25 +82,29 @@ class CompletionRulesApplication:
         for node in list(self.reasonerDict):
             # There is an existing node with the init concept being our filler
             if self.reasonerDict[node][0] == filler:
+                self.nodeExists = True
                 # if role does not exists already, create it
                 if role not in self.routingTable:
                     self.routingTable[role] = [[current_node, node]]
                 #otherwise, append to it
                 else:
-                    # Save the route like r : [parent_node, child_node]
-                    self.routingTable[role].append([current_node, node])
+                    if [current_node, node] not in self.routingTable[role]:  
+                        # Save the route like r : [parent_node, child_node]
+                        self.routingTable[role].append([current_node, node])
+
+        if self.nodeExists != True:
+            self.nodeExists = False
+            # If no node was found create a new one and make filler its init concept
+            self.nodeCounter += 1
+            newNode = f"d{self.nodeCounter}"
+            internal_marks = {newNode: [filler]}
+            self.reasonerDict.update(internal_marks)
+            if role not in self.routingTable:
+                self.routingTable[role] = [[current_node, newNode]]
+            #otherwise, append to it
             else:
-                # If no node was found create a new one and make filler its init concept
-                self.nodeCounter += 1
-                newNode = f"d{self.nodeCounter}"
-                internal_marks = {newNode: [filler]}
-                self.reasonerDict.update(internal_marks)
-                if role not in self.routingTable:
-                    self.routingTable[role] = [[current_node, newNode]]
-                #otherwise, append to it
-                else:
-                    # Save the route like r : [parent_node, child_node]
-                    self.routingTable[role].append([current_node, newNode])
+                # Save the route like r : [parent_node, child_node]
+                self.routingTable[role].append([current_node, newNode])
 
     def existenceRuleTwo(self):
         # Route look up for every node in the dictionray

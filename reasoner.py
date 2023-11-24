@@ -29,6 +29,7 @@ class Reasoner(CompletionRulesApplication):
         self.key_index = 0
         self.concept = None
         self.node = None
+        self.nodeExists = False
         self.elFactory = gateway.getELFactory()
 
     def parseOntologyTBox(self):
