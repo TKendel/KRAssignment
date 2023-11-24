@@ -14,7 +14,7 @@ parser = gateway.getOWLParser()
 formatter = gateway.getSimpleDLFormatter()
 
 ELConcepts = ["UniversalRoleRestriction", "ConceptDisjunction", "ConceptComplement", "DisjointnessAxiom"]
-axiomBanedList = ["DomainAxiom", "DisjointnessAxiom", "DomainAxiom", "RangeAxiom"]
+axiomBanedList = ["DomainAxiom", "DisjointnessAxiom", "RangeAxiom"]
 
 class Reasoner(CompletionRulesApplication):
     def __init__(self, ontology) -> None:
@@ -67,14 +67,15 @@ class Reasoner(CompletionRulesApplication):
                     for index, conceptDict in enumerate(self.reasonerDict[key]):  # item is the list of concepts like ['(A ⊓ B)', 'A', 'B']
                         if concept in self.reasonerDict["d0"]:
                             self.subsumer += 1
+                            break
                         else:
                             # self.print_java_object_list(self.reasonerDict[key])
                             # print("fasz")
                             # print(len(self.reasonerDict[key]))
                             conceptDictType = conceptDict.getClass().getSimpleName()
                             # print(f"Item: {formatter.format(conceptDict)}; Type: {conceptDictType}")
-                            if conceptDictType == "ConceptName":
-                                self.conjunctionRuleTwo(conceptDict, key)
+                            # if conceptDictType == "ConceptName":
+                            #     self.conjunctionRuleTwo(conceptDict, key)
                             if conceptDictType == "ConceptConjunction":
                                 self.updated = self.conjunctionRule(conceptDict, key)
                             if conceptDictType == "ExistentialRoleRestriction":
@@ -124,7 +125,7 @@ class Reasoner(CompletionRulesApplication):
 reasoner = Reasoner("pizza.owl")
 
 elFactory = gateway.getELFactory()
-subsume = elFactory.getConceptName('"CowAndWow"')
+subsume = elFactory.getConceptName('"Margherita"')
 
 conceptA = elFactory.getConceptName("A")
 r = elFactory.getRole("r")
