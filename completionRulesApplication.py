@@ -52,6 +52,7 @@ class CompletionRulesApplication:
             return all(x in self.reasonerDict[node_to_check] for x in concept_to_check.getConjuncts()) 
         return concept_to_check in self.reasonerDict[node_to_check]
 
+    # For now we skip this one by looking at the sub classes of the conjunction if it happens
     def conjunctionRuleTwo(self, conceptDict, current_node):
         for concept in self.reasonerDict[current_node]:
             if concept != conceptDict:
@@ -79,18 +80,27 @@ class CompletionRulesApplication:
         filler = concept.filler()
         # Check if a node exists with the first value being the filler, if so apply sub rule one
         for node in list(self.reasonerDict):
-            if node != current_node:
-                # There is an existing node with the init concept being our filler
-                if self.reasonerDict[node][0] == filler:
+            # There is an existing node with the init concept being our filler
+            if self.reasonerDict[node][0] == filler:
+                # if role does not exists already, create it
+                if role not in self.routingTable:
+                    self.routingTable[role] = [[current_node, node]]
+                #otherwise, append to it
+                else:
                     # Save the route like r : [parent_node, child_node]
-                    self.routingTable[role] = [current_node, node]
+                    self.routingTable[role].append([current_node, node])
             else:
                 # If no node was found create a new one and make filler its init concept
                 self.nodeCounter += 1
                 newNode = f"d{self.nodeCounter}"
                 internal_marks = {newNode: [filler]}
                 self.reasonerDict.update(internal_marks)
-                self.routingTable[role] = [current_node, newNode]
+                if role not in self.routingTable:
+                    self.routingTable[role] = [[current_node, newNode]]
+                #otherwise, append to it
+                else:
+                    # Save the route like r : [parent_node, child_node]
+                    self.routingTable[role].append([current_node, newNode])
 
     def existenceRuleTwo(self):
         # Route look up for every node in the dictionray
@@ -101,6 +111,7 @@ class CompletionRulesApplication:
                 if connectedNodes[0] == node:
                     # print(self.reasonerDict)
                     # Check all concepts inside which are just concept name. NOT SURE IF IT SHOUDL BE JUST CONCEPT NAMES
+                    # If the the two nodes are the same, check the child nodes concepts to which the current node is connceted 
                     for conceptChildNode in self.reasonerDict[connectedNodes[1]]:
                         conceptChildNodeType = conceptChildNode.getClass().getSimpleName()
                         if conceptChildNodeType == 'ConceptName':
