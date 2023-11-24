@@ -13,7 +13,7 @@ parser = gateway.getOWLParser()
 # get a formatter to print in nice DL format
 formatter = gateway.getSimpleDLFormatter()
 
-ELConcepts = ["UniversalRoleRestriction", "ConceptDisjunction", "ConceptComplement", "DisjointnessAxiom"]
+ELConcepts = ["UniversalRoleRestriction", "ConceptDisjunction", "ConceptComplement"]
 axiomBanedList = ["DomainAxiom", "DisjointnessAxiom", "RangeAxiom"]
 
 class Reasoner(CompletionRulesApplication):
@@ -39,7 +39,6 @@ class Reasoner(CompletionRulesApplication):
             if axiom.getClass().getSimpleName() not in axiomBanedList:
                 axiomList.append(axiom)
         return axiomList
-
 
     def parseOntologyConcept(self):
         listOfConcepts = []
@@ -70,7 +69,6 @@ class Reasoner(CompletionRulesApplication):
                             break
                         else:
                             # self.print_java_object_list(self.reasonerDict[key])
-                            # print("fasz")
                             # print(len(self.reasonerDict[key]))
                             conceptDictType = conceptDict.getClass().getSimpleName()
                             # print(f"Item: {formatter.format(conceptDict)}; Type: {conceptDictType}")
@@ -112,12 +110,21 @@ class Reasoner(CompletionRulesApplication):
                     else:
                         lhsAxiom = axiom.lhs()
                         for individual, conceptList in self.reasonerDict.items():
-                            for conceptInList in conceptList:
-                                if lhsAxiom == conceptInList and axiom.rhs() not in conceptList:
-                                    # Add boht the left and right side into the d array 
-                                    self.reasonerDict[individual].append(axiom.rhs())
+                            if lhsAxiom.getClass().getSimpleName() == "ConceptConjunction":
+                                    listOfConceptsInConjunction = []
+                                    for conjunct in lhsAxiom.getConjuncts():
+                                        listOfConceptsInConjunction.append(conjunct)
+                                    if listOfConceptsInConjunction[0] in conceptList and listOfConceptsInConjunction[1] in conceptList:
+                                        conceptList.append(axiom.rhs())
+                                        self.updated = True
+                                        break
+                            else:
+                                if lhsAxiom in conceptList and axiom.rhs() not in conceptList:
+                                    # add right side of the GCI
+                                    conceptList.append(axiom.rhs())
                                     self.updated = True
                                     break
+
                 self.print_java_object_dict(self.reasonerDict)
             print(self.subsumer)
 
@@ -137,6 +144,7 @@ conceptD = elFactory.getConceptName("D")
 conjunctionAB = elFactory.getConjunction(conceptA, conceptB)
 role = elFactory.getRole("r")
 existential = elFactory.getExistentialRoleRestriction(role,conjunctionAB)
+
 reasoner.getSubsumers(subsume)
 
 # reasoner = Reasoner(sys.argv[1])
