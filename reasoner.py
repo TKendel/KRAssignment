@@ -22,7 +22,6 @@ class Reasoner(CompletionRulesApplication):
         self.reasonerDict = None
         self.nodeCounter = 0
         self.routingTable = {}
-        self.subsumer = 0
         self.updated = True
         self.positionSaver = None
         self.graph = {}
@@ -53,91 +52,92 @@ class Reasoner(CompletionRulesApplication):
     def getSubsumers(self, subsume):
         allConcepts = self.parseOntologyConcept()
         axioms = self.parseOntologyTBox()
-        for mainConcept in allConcepts:
-            # print(self.reasonerDict)
-            self.reasonerDict = {"d0": []}
-            self.reasonerDict["d0"].append(subsume)
-            self.graph["d0"] = []
-            self.updated = True
-            while self.updated:
-                # print(self.updated)
-                self.updated = False
-                # print("New turn")
-                # self.print_java_object_dict(self.reasonerDict)
-                new_node_to_dict = False
-                if mainConcept in self.reasonerDict["d0"]:
-                    self.subsumer += 1
+        # print(self.reasonerDict)
+        self.reasonerDict = {"d0": []}
+        self.reasonerDict["d0"].append(subsume)
+        self.graph["d0"] = []
+        self.updated = True
+        while self.updated:
+            # print(self.updated)
+            self.updated = False
+            # print("New turn")
+            # self.print_java_object_dict(self.reasonerDict)
+            for key in list(self.reasonerDict): # key means node here, like d0
+                for index, conceptDict in enumerate(self.reasonerDict[key]):  # item is the list of concepts like ['(A ⊓ B)', 'A', 'B']
+                    # self.print_java_object_list(self.reasonerDict[key])
+                    # print(len(self.reasonerDict[key]))
+                    conceptDictType = conceptDict.getClass().getSimpleName()
+                    # print(f"Item: {formatter.format(conceptDict)}; Type: {conceptDictType}")
+                    # if conceptDictType == "ConceptName":
+                    #     self.conjunctionRuleTwo(conceptDict, key)
+                    if conceptDictType == "ConceptConjunction":
+                        self.updated = self.conjunctionRule(conceptDict, key)
+                    if conceptDictType == "ExistentialRoleRestriction":
+                        self.existenceRuleOnePointTwo(conceptDict, key)
+                    self.existenceRuleTwo()
+            # if new_node_to_dict:
+            #     self.reasonerDict[f"d{self.key_index}"] = [self.concept.filler()]
+            #     self.graph[self.node].append((self.concept.role(), f"d{self.key_index}"))
+            #     self.updated = True
+            for axiom in axioms:
+                if self.axiomFound:
+                    self.axiomFound = False
                     break
-                for key in list(self.reasonerDict): # key means node here, like d0
-                    for index, conceptDict in enumerate(self.reasonerDict[key]):  # item is the list of concepts like ['(A ⊓ B)', 'A', 'B']
-                        # self.print_java_object_list(self.reasonerDict[key])
-                        # print(len(self.reasonerDict[key]))
-                        conceptDictType = conceptDict.getClass().getSimpleName()
-                        # print(f"Item: {formatter.format(conceptDict)}; Type: {conceptDictType}")
-                        # if conceptDictType == "ConceptName":
-                        #     self.conjunctionRuleTwo(conceptDict, key)
-                        if conceptDictType == "ConceptConjunction":
-                            self.updated = self.conjunctionRule(conceptDict, key)
-                        if conceptDictType == "ExistentialRoleRestriction":
-                            self.existenceRuleOnePointTwo(conceptDict, key)
-                        self.existenceRuleTwo()
-
-                # if new_node_to_dict:
-                #     self.reasonerDict[f"d{self.key_index}"] = [self.concept.filler()]
-                #     self.graph[self.node].append((self.concept.role(), f"d{self.key_index}"))
-                #     self.updated = True
-
-                for axiom in axioms:
+                axiomType = axiom.getClass().getSimpleName()
+                # print(axiom)
+                # print(formatter.format(axiom))
+                if axiomType == "EquivalenceAxiom":
+                    conceptsInEquivalence = []
+                    for concept in axiom.getConcepts():
+                        conceptsInEquivalence.append(concept)
+                    newGCIfirst = self.elFactory.getGCI(conceptsInEquivalence[0], conceptsInEquivalence[1])
+                    newGCIsecond = self.elFactory.getGCI(conceptsInEquivalence[1], conceptsInEquivalence[0])
+                    for individual, conceptList in self.reasonerDict.items():
+                        for conceptInList in conceptList:
+                            if newGCIfirst.lhs() == conceptInList and newGCIfirst.rhs() not in conceptList:
+                                # Add right side
+                                self.reasonerDict[individual].append(newGCIfirst.rhs())
+                                self.updated = True
+                                self.axiomFound = True
+                                
+                            if newGCIsecond.lhs() == conceptInList and newGCIsecond.rhs() not in conceptList:
+                                # Add right side
+                                self.reasonerDict[individual].append(newGCIsecond.rhs())
+                                self.updated = True
+                                self.axiomFound = True
                     if self.axiomFound:
-                        self.axiomFound = False
                         break
-                    axiomType = axiom.getClass().getSimpleName()
-                    # print(axiom)
-                    # print(formatter.format(axiom))
-                    if axiomType == "EquivalenceAxiom":
-                        conceptsInEquivalence = []
-                        for concept in axiom.getConcepts():
-                            conceptsInEquivalence.append(concept)
-                        newGCIfirst = self.elFactory.getGCI(conceptsInEquivalence[0], conceptsInEquivalence[1])
-                        newGCIsecond = self.elFactory.getGCI(conceptsInEquivalence[1], conceptsInEquivalence[0])
-                        for individual, conceptList in self.reasonerDict.items():
-                            for conceptInList in conceptList:
-                                if newGCIfirst.lhs() == conceptInList and newGCIfirst.rhs() not in conceptList:
-                                    # Add right side
-                                    self.reasonerDict[individual].append(newGCIfirst.rhs())
-                                    self.updated = True
-                                    self.axiomFound = True
-                                    
-                                if newGCIsecond.lhs() == conceptInList and newGCIsecond.rhs() not in conceptList:
-                                    # Add right side
-                                    self.reasonerDict[individual].append(newGCIsecond.rhs())
-                                    self.updated = True
-                                    self.axiomFound = True
-                        if self.axiomFound:
-                            break
-                    else:
-                        lhsAxiom = axiom.lhs()
-                        for individual, conceptList in self.reasonerDict.items():
-                            if lhsAxiom.getClass().getSimpleName() == "ConceptConjunction":
-                                    listOfConceptsInConjunction = []
-                                    for conjunct in lhsAxiom.getConjuncts():
-                                        listOfConceptsInConjunction.append(conjunct)
-                                    if listOfConceptsInConjunction[0] in conceptList and listOfConceptsInConjunction[1] in conceptList:
-                                        conceptList.append(axiom.rhs())
-                                        self.updated = True
-                                        self.axiomFound = True
-                                        break
-                            else:
-                                if lhsAxiom in conceptList and axiom.rhs() not in conceptList:
-                                    # add right side of the GCI
+                else:
+                    lhsAxiom = axiom.lhs()
+                    for individual, conceptList in self.reasonerDict.items():
+                        if lhsAxiom.getClass().getSimpleName() == "ConceptConjunction":
+                                listOfConceptsInConjunction = []
+                                for conjunct in lhsAxiom.getConjuncts():
+                                    listOfConceptsInConjunction.append(conjunct)
+                                if listOfConceptsInConjunction[0] in conceptList and listOfConceptsInConjunction[1] in conceptList:
                                     conceptList.append(axiom.rhs())
                                     self.updated = True
                                     self.axiomFound = True
                                     break
-
-                self.print_java_object_dict(self.reasonerDict)
-            print(self.subsumer)
-
+                        else:
+                            if lhsAxiom in conceptList and axiom.rhs() not in conceptList:
+                                # add right side of the GCI
+                                conceptList.append(axiom.rhs())
+                                self.updated = True
+                                self.axiomFound = True
+                                break
+            self.print_java_object_dict(self.reasonerDict)
+        
+        print(f"\n\n\nThe subsumers of {formatter.format(subsume)}:\n")
+        d0 = self.reasonerDict["d0"]
+        for concept in allConcepts:
+            if concept.getClass().getSimpleName() == "ConceptConjunction":
+                if all(x in d0 for x in concept.getConjuncts()):
+                    print(formatter.format(concept))
+            else:
+                if concept in d0:
+                    print(formatter.format(concept))
+            # print(f"{concept.getClass().getSimpleName()} \t-\t {formatter.format(concept)}")
 
 reasoner = Reasoner("pizza.owl")
 
