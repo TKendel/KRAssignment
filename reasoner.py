@@ -76,8 +76,8 @@ class Reasoner(CompletionRulesApplication):
                         # print(len(self.reasonerDict[key]))
                         conceptDictType = conceptDict.getClass().getSimpleName()
                         # print(f"Item: {formatter.format(conceptDict)}; Type: {conceptDictType}")
-                        # if conceptDictType == "ConceptName":
-                        #     self.conjunctionRuleTwo(conceptDict, key)
+                        if conceptDictType == "ConceptName":
+                            self.conjunctionRuleTwo(conceptDict, key)
                         if conceptDictType == "ConceptConjunction":
                             self.updated = self.conjunctionRule(conceptDict, key)
                         if conceptDictType == "ExistentialRoleRestriction":
@@ -120,28 +120,27 @@ class Reasoner(CompletionRulesApplication):
                     else:
                         lhsAxiom = axiom.lhs()
                         for individual, conceptList in self.reasonerDict.items():
-                            if lhsAxiom.getClass().getSimpleName() == "ConceptConjunction":
-                                    listOfConceptsInConjunction = []
-                                    for conjunct in lhsAxiom.getConjuncts():
-                                        listOfConceptsInConjunction.append(conjunct)
-                                    if listOfConceptsInConjunction[0] in conceptList and listOfConceptsInConjunction[1] in conceptList:
-                                        conceptList.append(axiom.rhs())
-                                        self.updated = True
-                                        self.axiomFound = True
-                                        break
-                            else:
-                                if lhsAxiom in conceptList and axiom.rhs() not in conceptList:
-                                    # add right side of the GCI
-                                    conceptList.append(axiom.rhs())
-                                    self.updated = True
-                                    self.axiomFound = True
-                                    break
+                            # if lhsAxiom.getClass().getSimpleName() == "ConceptConjunction":
+                            #         listOfConceptsInConjunction = []
+                            #         for conjunct in lhsAxiom.getConjuncts():
+                            #             listOfConceptsInConjunction.append(conjunct)
+                            #         if listOfConceptsInConjunction[0] in conceptList and listOfConceptsInConjunction[1] in conceptList:
+                            #             conceptList.append(axiom.rhs())
+                            #             self.updated = True
+                            #             self.axiomFound = True
+                            #             break
+                            if lhsAxiom in conceptList and axiom.rhs() not in conceptList:
+                                # add right side of the GCI
+                                conceptList.append(axiom.rhs())
+                                self.updated = True
+                                self.axiomFound = True
+                                break
 
                 self.print_java_object_dict(self.reasonerDict)
             print(self.subsumer)
         end = time.time()
         with open('performance_1.txt', 'a') as f:
-            f.write(str((end-start) * 10**3), self.subsumer)
+            f.write(str((end-start) * 10**3)+", " + str(self.subsumer)+ "\n")
 
 
 reasoner = Reasoner("pizza.owl")

@@ -1,10 +1,13 @@
 import sys
+import time
 from completionRulesApplication import CompletionRulesApplication
 #! /usr/bin/python
 
 from py4j.java_gateway import JavaGateway
 
 # connect to the java gateway of dl4python
+start = time.time()
+
 gateway = JavaGateway()
 
 # get a parser from OWL files to DL ontologies
@@ -127,35 +130,36 @@ class Reasoner(CompletionRulesApplication):
                                 self.axiomFound = True
                                 break
             self.print_java_object_dict(self.reasonerDict)
-        
+
         print(f"\n\n\nThe subsumers of {formatter.format(subsume)}:\n")
         d0 = self.reasonerDict["d0"]
+        counter = 0
         for concept in allConcepts:
             if concept.getClass().getSimpleName() == "ConceptConjunction":
                 if all(x in d0 for x in concept.getConjuncts()):
+                    counter += 1
                     print(formatter.format(concept))
             else:
                 if concept in d0:
+                    counter += 1
                     print(formatter.format(concept))
             # print(f"{concept.getClass().getSimpleName()} \t-\t {formatter.format(concept)}")
+                
+        end = time.time()
+        with open('performance_2.txt', 'a') as f:
+            f.write(str((end-start) * 10**3)+", " + str(counter)+ "\n")
 
 reasoner = Reasoner("pizza.owl")
 
 elFactory = gateway.getELFactory()
 subsume = elFactory.getConceptName('"Margherita"')
 
-conceptA = elFactory.getConceptName("A")
-r = elFactory.getRole("r")
-t = elFactory.getRole("t")
-conceptB = elFactory.getConceptName("B")
-exist_r_B = elFactory.getExistentialRoleRestriction(r, conceptB)
-conceptC = elFactory.getConceptName("C")
-conceptD = elFactory.getConceptName("D")
-conjunctionAB = elFactory.getConjunction(conceptA, conceptB)
-role = elFactory.getRole("r")
-existential = elFactory.getExistentialRoleRestriction(role,conjunctionAB)
+
 
 reasoner.getSubsumers(subsume)
 
 # reasoner = Reasoner(sys.argv[1])
+
+# elFactory = gateway.getELFactory()
+# subsume = elFactory.getConceptName('"Margherita"')
 # reasoner.getSubsumers(sys.argv[2])

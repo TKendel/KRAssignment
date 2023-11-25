@@ -33,6 +33,7 @@ axioms = tbox.getAxioms()
 
 print("These are the axioms in the TBox:")
 for axiom in axioms:
+    print(axiom.getClass().getSimpleName())
     print(formatter.format(axiom))
 
 
@@ -43,6 +44,8 @@ print()
 print("There are ",len(allConcepts), " concepts occurring in the ontology")
 print("These are the concepts occurring in the ontology:")
 print([formatter.format(x) for x in allConcepts])
+print([x.getClass().getSimpleName()  for x in allConcepts])
+
 
 conceptNames = ontology.getConceptNames()
 
@@ -63,7 +66,7 @@ for axiom in axioms:
     if(not(foundGCI)
        and axiomType == "GeneralConceptInclusion"):
         print("I found a general concept inclusion:")
-        print(formatter.format(axiom))
+        print(axiom)
         print("The left hand side of the axiom is: ", formatter.format(axiom.lhs()))
         print("The right hand side of the axiom is: ", formatter.format(axiom.rhs()))
         print()
@@ -130,33 +133,17 @@ conjunction2 = elFactory.getConjunction(top,existential)
 
 gci = elFactory.getGCI(conjunctionAB,conjunction2)
 
+
+
 print()
 print()
 print("I made the following GCI:")
 print(formatter.format(gci))
 
-
 # Using the reasoners
-
-elk = gateway.getELKReasoner()
 hermit = gateway.getHermiTReasoner() # might the upper case T!
 
 margherita = elFactory.getConceptName('"Margherita"')
-
-print()
-print("I am first testing ELK.")
-elk.setOntology(ontology)
-print()
-print("According to ELK, Margherita has the following subsumers: ")
-subsumers = elk.getSubsumers(margherita)
-for concept in subsumers:
-    print(" - ",formatter.format(concept))
-print("(",len(subsumers)," in total)")
-print()
-print("I can also classify the ontology with ELK.")
-classificationResult = elk.classify()
-print("But I am not printing the result, because that would be too much stuff (it is a dictionary)")
-print()
 
 print()
 print("I am now testing HermiT.")
@@ -164,6 +151,7 @@ hermit.setOntology(ontology)
 print()
 print("According to HermiT, Margherita has the following subsumers: ")
 subsumers = hermit.getSubsumers(margherita)
+print(len(subsumers))
 for concept in subsumers:
     print(" - ",formatter.format(concept))
 print("(",len(subsumers)," in total)")
@@ -171,6 +159,4 @@ print()
 print("I can also classify the ontology with HermiT")
 classificationResult = hermit.classify()
 print("But I am not printing the result, because that would be too much stuff (it is a dictionary)")
-print(classificationResult)
-
-
+print()
