@@ -147,7 +147,7 @@ class Reasoner(CompletionRulesApplication):
                 
         end = time.time()
         with open('performance_2.txt', 'a') as f:
-            f.write(str((end-start) * 10**3)+", " + str(counter)+ "\n")
+            f.write(str((0))+", " + str(end-start * 10**3)+ "\n")
 
 reasoner = Reasoner("pizza.owl")
 
