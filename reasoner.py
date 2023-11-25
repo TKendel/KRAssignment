@@ -143,24 +143,26 @@ class Reasoner(CompletionRulesApplication):
             f.write(str((end-start) * 10**3)+", " + str(self.subsumer)+ "\n")
 
 
-reasoner = Reasoner("pizza.owl")
+# reasoner = Reasoner("pizza.owl")
+
+# elFactory = gateway.getELFactory()
+# subsume = elFactory.getConceptName('"Margherita"')
+
+# conceptA = elFactory.getConceptName("A")
+# r = elFactory.getRole("r")
+# t = elFactory.getRole("t")
+# conceptB = elFactory.getConceptName("B")
+# exist_r_B = elFactory.getExistentialRoleRestriction(r, conceptB)
+# conceptC = elFactory.getConceptName("C")
+# conceptD = elFactory.getConceptName("D")
+# conjunctionAB = elFactory.getConjunction(conceptA, conceptB)
+# role = elFactory.getRole("r")
+# existential = elFactory.getExistentialRoleRestriction(role,conjunctionAB)
+
+# reasoner.getSubsumers(subsume)
+
 
 elFactory = gateway.getELFactory()
-subsume = elFactory.getConceptName('"Margherita"')
-
-conceptA = elFactory.getConceptName("A")
-r = elFactory.getRole("r")
-t = elFactory.getRole("t")
-conceptB = elFactory.getConceptName("B")
-exist_r_B = elFactory.getExistentialRoleRestriction(r, conceptB)
-conceptC = elFactory.getConceptName("C")
-conceptD = elFactory.getConceptName("D")
-conjunctionAB = elFactory.getConjunction(conceptA, conceptB)
-role = elFactory.getRole("r")
-existential = elFactory.getExistentialRoleRestriction(role,conjunctionAB)
-
+reasoner = Reasoner(sys.argv[1])
+subsume = elFactory.getConceptName(sys.argv[2])
 reasoner.getSubsumers(subsume)
-
-
-# reasoner = Reasoner(sys.argv[1])
-# reasoner.getSubsumers(sys.argv[2])

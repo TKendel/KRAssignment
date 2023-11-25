@@ -135,21 +135,23 @@ class Reasoner(CompletionRulesApplication):
                     print(formatter.format(concept))
             # print(f"{concept.getClass().getSimpleName()} \t-\t {formatter.format(concept)}")
                 
+        print(f"{counter} subsumers found.")
         end = time.time()
         with open('performance_1.2.txt', 'a') as f:
-            f.write(str((start) * 10**3)+", " + str(end * 10**3)+ "\n")
+            f.write(str((end-start) * 10**3)+", " + str(counter)+ "\n")
 
-reasoner = Reasoner("pizza.owl")
-
-elFactory = gateway.getELFactory()
-subsume = elFactory.getConceptName('"Margherita"')
-
-
-
-reasoner.getSubsumers(subsume)
-
-# reasoner = Reasoner(sys.argv[1])
+# reasoner = Reasoner("pizza.owl")
 
 # elFactory = gateway.getELFactory()
 # subsume = elFactory.getConceptName('"Margherita"')
-# reasoner.getSubsumers(sys.argv[2])
+# reasoner.getSubsumers(subsume)
+
+
+reasoner = Reasoner(sys.argv[1])
+
+elFactory = gateway.getELFactory()
+subsume = elFactory.getConceptName(sys.argv[2])
+if sys.argv[1] == "pizza.owl":
+    subsume = elFactory.getConceptName(f'"{sys.argv[2]}"')
+
+reasoner.getSubsumers(subsume)
