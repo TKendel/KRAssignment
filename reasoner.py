@@ -165,4 +165,6 @@ class Reasoner(CompletionRulesApplication):
 elFactory = gateway.getELFactory()
 reasoner = Reasoner(sys.argv[1])
 subsume = elFactory.getConceptName(sys.argv[2])
+if sys.argv[1] == "pizza.owl":
+    subsume = elFactory.getConceptName(f'"{sys.argv[2]}"')
 reasoner.getSubsumers(subsume)
