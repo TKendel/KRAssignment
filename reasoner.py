@@ -1,10 +1,12 @@
 import sys
+import time
 from completionRulesApplication import CompletionRulesApplication
 #! /usr/bin/python
 
 from py4j.java_gateway import JavaGateway
 
 # connect to the java gateway of dl4python
+start = time.time()
 gateway = JavaGateway()
 
 # get a parser from OWL files to DL ontologies
@@ -137,6 +139,9 @@ class Reasoner(CompletionRulesApplication):
 
                 self.print_java_object_dict(self.reasonerDict)
             print(self.subsumer)
+        end = time.time()
+        with open('performance_1.txt', 'a') as f:
+            f.write(str((end-start) * 10**3), self.subsumer)
 
 
 reasoner = Reasoner("pizza.owl")
@@ -156,6 +161,7 @@ role = elFactory.getRole("r")
 existential = elFactory.getExistentialRoleRestriction(role,conjunctionAB)
 
 reasoner.getSubsumers(subsume)
+
 
 # reasoner = Reasoner(sys.argv[1])
 # reasoner.getSubsumers(sys.argv[2])
